@@ -9,13 +9,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --max: 680px;
-      --text: #1a1a1a;
+      --max: 700px;
+      --text: #1c1c1c;
       --muted: #555;
       --light: #888;
-      --border: #ddd;
-      --bg: #fff;
-      --accent: #b5862a;
+      --border: #e0dbd2;
+      --bg: #f8f5f0;
+      --white: #ffffff;
+      --gold: #b5862a;
+      --navy: #1e2e3d;
     }
 
     html { scroll-behavior: smooth; }
@@ -31,88 +33,113 @@
     .wrap {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 28px;
     }
 
     /* ── Top bar ── */
     .topbar {
-      border-bottom: 1px solid var(--border);
-      padding: 10px 24px;
+      background: var(--navy);
+      color: #9aacb8;
       font-family: Arial, sans-serif;
-      font-size: 13px;
-      color: var(--muted);
+      font-size: 12.5px;
       text-align: center;
+      padding: 9px 20px;
+      letter-spacing: 0.02em;
     }
-    .topbar a { color: var(--text); }
+    .topbar a { color: #c8d8e0; text-decoration: none; }
+    .topbar a:hover { text-decoration: underline; }
 
     /* ── Hero ── */
     .hero {
-      padding: 56px 24px 40px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 60px 28px 52px;
+    }
+    .hero-inner {
       max-width: var(--max);
       margin: 0 auto;
     }
     .hero .label {
       font-family: Arial, sans-serif;
-      font-size: 12px;
-      letter-spacing: 0.12em;
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 20px;
+      color: var(--gold);
+      margin-bottom: 18px;
     }
     .hero h1 {
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
       font-weight: normal;
       line-height: 1.25;
-      margin-bottom: 20px;
+      color: var(--navy);
+      margin-bottom: 18px;
     }
-    .hero p {
+    .hero .sub {
       font-size: 17px;
       color: var(--muted);
-      margin-bottom: 32px;
-      max-width: 560px;
+      margin-bottom: 34px;
+      max-width: 540px;
     }
 
     /* ── Button ── */
     .btn {
       display: inline-block;
-      background: var(--text);
+      background: var(--navy);
       color: #fff;
       font-family: Arial, sans-serif;
       font-size: 15px;
       font-weight: bold;
-      padding: 14px 32px;
+      padding: 14px 30px;
       text-decoration: none;
+      border-radius: 3px;
       letter-spacing: 0.02em;
     }
-    .btn:hover { background: #333; }
+    .btn:hover { background: #2a3f52; }
 
     .sub-cta {
-      margin-top: 14px;
+      margin-top: 13px;
       font-family: Arial, sans-serif;
       font-size: 13px;
       color: var(--light);
     }
-    .sub-cta a { color: var(--text); }
+    .sub-cta a { color: var(--muted); }
 
-    /* ── Divider ── */
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 48px 0;
+    /* ── No-pressure block ── */
+    .no-pressure {
+      border-left: 3px solid var(--gold);
+      padding: 14px 20px;
+      margin-top: 30px;
+      font-size: 16.5px;
+      color: var(--muted);
+      font-style: italic;
+      background: var(--bg);
+      border-radius: 0 3px 3px 0;
     }
 
-    /* ── Sections ── */
+    /* ── Section ── */
     .section {
+      padding: 52px 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-of-type { border-bottom: none; }
+    .section-inner {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 0 24px 48px;
     }
+    .section.alt { background: var(--white); }
 
     h2 {
-      font-size: 1.4rem;
+      font-size: clamp(1.25rem, 3vw, 1.6rem);
       font-weight: normal;
-      margin-bottom: 20px;
+      color: var(--navy);
+      margin-bottom: 12px;
       line-height: 1.3;
+    }
+    .section-sub {
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      color: var(--light);
+      margin-bottom: 24px;
     }
 
     p { margin-bottom: 16px; }
@@ -122,12 +149,13 @@
     .video-wrap {
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: #f2f2f2;
+      background: #e8e4dc;
       border: 1px solid var(--border);
+      border-radius: 3px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 24px 0 0;
+      margin-top: 8px;
     }
     .video-placeholder {
       text-align: center;
@@ -136,8 +164,8 @@
       color: var(--light);
     }
     .video-placeholder .play {
-      font-size: 40px;
-      color: var(--accent);
+      font-size: 38px;
+      color: var(--gold);
       display: block;
       margin-bottom: 10px;
     }
@@ -145,33 +173,36 @@
     /* ── Pain list ── */
     .pain-list {
       list-style: none;
-      margin-top: 20px;
+      margin-top: 4px;
     }
     .pain-list li {
-      padding: 16px 0;
+      padding: 18px 0;
       border-bottom: 1px solid var(--border);
       font-size: 17px;
     }
-    .pain-list li:last-child { border-bottom: none; }
-    .pain-list li strong { display: block; margin-bottom: 4px; }
+    .pain-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .pain-list li strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--navy);
+    }
+    .pain-list li span { color: var(--muted); }
 
     /* ── Topics ── */
-    .topics {
-      margin-top: 20px;
-    }
+    .topics { margin-top: 4px; }
     .topic {
-      padding: 16px 0;
+      padding: 18px 0;
       border-bottom: 1px solid var(--border);
     }
-    .topic:last-child { border-bottom: none; }
+    .topic:last-child { border-bottom: none; padding-bottom: 0; }
     .topic strong {
       font-family: Arial, sans-serif;
-      font-size: 13px;
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
+      color: var(--gold);
       display: block;
       margin-bottom: 6px;
-      color: var(--text);
     }
     .topic p {
       font-size: 16px;
@@ -179,34 +210,62 @@
       margin: 0;
     }
 
-    /* ── No-pressure block ── */
-    .no-pressure {
-      border-left: 3px solid var(--accent);
-      padding: 16px 20px;
-      margin: 32px 0 0;
-      font-size: 17px;
-      color: var(--muted);
-      font-style: italic;
+    /* ── About credentials ── */
+    .credentials {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: var(--light);
+      line-height: 2;
+    }
+
+    /* ── Final CTA section ── */
+    .cta-section {
+      background: var(--navy);
+      padding: 60px 28px;
+    }
+    .cta-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .cta-section h2 { color: #fff; margin-bottom: 12px; }
+    .cta-section p { color: #8fa3b0; font-size: 17px; margin-bottom: 28px; }
+    .cta-section .btn {
+      background: var(--gold);
+      color: #fff;
+    }
+    .cta-section .btn:hover { background: #c99830; }
+    .cta-section .sub-cta { color: #5a7080; }
+    .cta-section .sub-cta a { color: #7a9aaa; }
+
+    /* ── Disclaimer ── */
+    .disclaimer {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: #3d5060;
+      margin-top: 24px;
+      line-height: 1.7;
+      max-width: 560px;
     }
 
     /* ── Footer ── */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 28px 24px;
+      background: #141e26;
+      padding: 24px 28px;
       text-align: center;
       font-family: Arial, sans-serif;
       font-size: 12px;
-      color: var(--light);
-      line-height: 1.8;
+      color: #3d5060;
+      line-height: 1.9;
     }
-    footer a { color: var(--muted); }
+    footer a { color: #4d6878; }
 
-    .disclaimer {
-      font-family: Arial, sans-serif;
-      font-size: 11px;
-      color: #aaa;
-      margin-top: 20px;
-      line-height: 1.6;
+    @media (max-width: 500px) {
+      .hero { padding: 44px 20px 40px; }
+      .section { padding: 40px 20px; }
+      .cta-section { padding: 48px 20px; }
     }
   </style>
 </head>
@@ -219,113 +278,115 @@
 
   <!-- Hero -->
   <div class="hero">
-    <p class="label">For incorporated business owners in the GTHA</p>
-    <h1>Your corporation is making money.<br>Is it actually working for you?</h1>
-    <p>If you have retained earnings sitting inside your corporation and no clear plan for them, let's talk. 15 minutes. No pitch, no pressure.</p>
-    <a class="btn" href="https://outlook.office.com/bookwithme/user/95b50f9d3bdd45d88a8b01f0dd32ddca@financialdamon.ca/meetingtype/G_vyigEoe06OjTSM1IYt5Q2?anonymous&ismsaljsauthenabled&ep=mlink" target="_blank" rel="noopener">Book a 15-Minute Intro Call</a>
-    <p class="sub-cta">Not ready to book? Email me directly: <a href="mailto:smartmoney@financialdamon.ca">smartmoney@financialdamon.ca</a></p>
-
-    <div class="no-pressure">
-      "I'm not going to follow up with you 14 times. Honestly, I don't have the time — and you don't have the patience. If it makes sense to talk, we'll both know pretty quickly. If it doesn't, no hard feelings."
+    <div class="hero-inner">
+      <p class="label">For incorporated business owners in the GTHA</p>
+      <h1>Your corporation is making money.<br>Is it actually working for you?</h1>
+      <p class="sub">If you have retained earnings sitting inside your corporation and no clear plan for them, let's talk. 15 minutes. No pitch, no pressure.</p>
+      <a class="btn" href="https://outlook.office.com/bookwithme/user/95b50f9d3bdd45d88a8b01f0dd32ddca@financialdamon.ca/meetingtype/G_vyigEoe06OjTSM1IYt5Q2?anonymous&ismsaljsauthenabled&ep=mlink" target="_blank" rel="noopener">Book a 15-Minute Intro Call</a>
+      <p class="sub-cta">Not ready to book? Email me directly: <a href="mailto:smartmoney@financialdamon.ca">smartmoney@financialdamon.ca</a></p>
+      <div class="no-pressure">
+        "I'm not going to follow up with you 14 times. Honestly, I don't have the time — and you don't have the patience. If it makes sense to talk, we'll both know pretty quickly. If it doesn't, no hard feelings."
+      </div>
     </div>
   </div>
-
-  <hr class="wrap" style="max-width:680px; margin-left:auto; margin-right:auto;" />
 
   <!-- Video -->
   <div class="section">
-    <h2>Before you read anything else, watch this.</h2>
-    <p style="color:var(--muted); font-size:16px;">About a minute long. I'll tell you exactly who I am and whether it makes sense to talk.</p>
-
-    <!-- VIDEO PLACEHOLDER
-         Replace the div below with an iframe when you have your video link:
-         <iframe width="100%" height="100%" src="YOUR_YOUTUBE_OR_LOOM_EMBED_URL"
-           frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-    -->
-    <div class="video-wrap">
-      <div class="video-placeholder">
-        <span class="play">▶</span>
-        Video coming soon
+    <div class="section-inner">
+      <h2>Before you read anything else, watch this.</h2>
+      <p class="section-sub">About a minute long. I'll tell you exactly who I am and whether it makes sense to talk.</p>
+      <!-- VIDEO PLACEHOLDER
+           Replace the div below with an iframe when you have your video:
+           <div style="position:relative; width:100%; aspect-ratio:16/9;">
+             <iframe src="YOUR_YOUTUBE_OR_LOOM_EMBED_URL" frameborder="0" allowfullscreen
+               style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+           </div>
+      -->
+      <div class="video-wrap">
+        <div class="video-placeholder">
+          <span class="play">▶</span>
+          Video coming soon
+        </div>
       </div>
     </div>
   </div>
 
-  <hr />
-
   <!-- Pain points -->
-  <div class="section">
-    <h2>Sound familiar?</h2>
-    <p style="color:var(--muted); font-size:16px;">These are the things I hear most from incorporated business owners in the GTHA.</p>
-    <ul class="pain-list">
-      <li>
-        <strong>"I have money building up inside my corporation and I don't really know what to do with it."</strong>
-        Your accountant keeps it tidy. But tidy isn't the same as efficient.
-      </li>
-      <li>
-        <strong>"I feel like I'm paying too much tax but I don't know where the leak is."</strong>
-        Corporate tax, personal tax, passive income rules — it adds up fast and most people don't have a clear picture of the whole thing.
-      </li>
-      <li>
-        <strong>"I don't have a retirement plan. My plan is just… keep working."</strong>
-        CPP won't cut it. And your corporation isn't a retirement plan by itself.
-      </li>
-      <li>
-        <strong>"I've never had someone sit down and look at the whole picture."</strong>
-        Accountant handles taxes. Banker handles the mortgage. Nobody's connecting the dots.
-      </li>
-    </ul>
+  <div class="section alt">
+    <div class="section-inner">
+      <h2>Sound familiar?</h2>
+      <p class="section-sub">These are the things I hear most from incorporated business owners in the GTHA.</p>
+      <ul class="pain-list">
+        <li>
+          <strong>"I have money building up inside my corporation and I don't really know what to do with it."</strong>
+          <span>Your accountant keeps it tidy. But tidy isn't the same as efficient.</span>
+        </li>
+        <li>
+          <strong>"I feel like I'm paying too much tax but I don't know where the leak is."</strong>
+          <span>Corporate tax, personal tax, passive income rules — it adds up fast and most people don't have a clear picture of the whole thing.</span>
+        </li>
+        <li>
+          <strong>"I don't have a retirement plan. My plan is just… keep working."</strong>
+          <span>CPP won't cut it. And your corporation isn't a retirement plan by itself.</span>
+        </li>
+        <li>
+          <strong>"I've never had someone sit down and look at the whole picture."</strong>
+          <span>Accountant handles taxes. Banker handles the mortgage. Nobody's connecting the dots.</span>
+        </li>
+      </ul>
+    </div>
   </div>
-
-  <hr />
 
   <!-- What we cover -->
   <div class="section">
-    <h2>What a Corporate Strategy Review actually covers</h2>
-    <p style="color:var(--muted); font-size:16px;">This isn't a sales meeting. It's a working conversation about your specific situation.</p>
-    <div class="topics">
-      <div class="topic">
-        <strong>Retained Earnings</strong>
-        <p>What's sitting in your corporation, what it's costing you in passive income tax, and what your options are.</p>
-      </div>
-      <div class="topic">
-        <strong>Tax Efficiency</strong>
-        <p>Where the gaps usually are between corporate and personal tax — and what strategies are actually available to you.</p>
-      </div>
-      <div class="topic">
-        <strong>Retirement Income</strong>
-        <p>How to build a retirement income stream from your corporate assets without triggering a big tax hit.</p>
-      </div>
-      <div class="topic">
-        <strong>Protection</strong>
-        <p>Whether your corporate wealth is properly protected — and whether your insurance is working as hard as your money should be.</p>
+    <div class="section-inner">
+      <h2>What a Corporate Strategy Review actually covers</h2>
+      <p class="section-sub">This isn't a sales meeting. It's a working conversation about your specific situation.</p>
+      <div class="topics">
+        <div class="topic">
+          <strong>Retained Earnings</strong>
+          <p>What's sitting in your corporation, what it's costing you in passive income tax, and what your options are.</p>
+        </div>
+        <div class="topic">
+          <strong>Tax Efficiency</strong>
+          <p>Where the gaps usually are between corporate and personal tax — and what strategies are actually available to you.</p>
+        </div>
+        <div class="topic">
+          <strong>Retirement Income</strong>
+          <p>How to build a retirement income stream from your corporate assets without triggering a big tax hit.</p>
+        </div>
+        <div class="topic">
+          <strong>Protection</strong>
+          <p>Whether your corporate wealth is properly protected — and whether your insurance is working as hard as your money should be.</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <hr />
-
   <!-- About -->
-  <div class="section">
-    <h2>Who I am</h2>
-    <p>My name is Damon. I'm an independent financial advisor based in Milton, Ontario. I've been in this industry since 2001.</p>
-    <p>I grew up in Minden — a small town in Ontario — and I've never been the type to hide behind jargon or a fancy title. My dad managed a Beer Store. I went to McMaster for Finance. I ended up in one of the most complicated corners of financial planning, and I'm still here because I'm straight with people.</p>
-    <p>I work with incorporated business owners who are doing well financially but feel like they're leaving money on the table — or just don't have a clear picture of where things stand. I'm not a tax lawyer and I'm not an accountant. What I do is connect the dots between your corporate structure, your investments, your insurance, and your retirement — and make sure they're all pointing in the same direction.</p>
-    <p>I work independently, which means I'm not pushing a product line. I work with what actually makes sense for you.</p>
-    <p style="color:var(--muted); font-size:15px; font-family:Arial,sans-serif; margin-top:24px;">
-      Independent financial advisor &nbsp;·&nbsp; Licensed in Ontario &nbsp;·&nbsp; In the industry since 2001<br>
-      BComm (Finance), McMaster University &nbsp;·&nbsp; Based in Milton, ON
-    </p>
+  <div class="section alt">
+    <div class="section-inner">
+      <h2>Who I am</h2>
+      <p>My name is Damon. I'm an independent financial advisor based in Milton, Ontario. I've been in this industry since 2001.</p>
+      <p>I grew up in Minden — a small town in Ontario — and I've never been the type to hide behind jargon or a fancy title. My dad managed a Beer Store. I went to McMaster for Finance. I ended up in one of the most complicated corners of financial planning, and I'm still here because I'm straight with people.</p>
+      <p>I work with incorporated business owners who are doing well financially but feel like they're leaving money on the table — or just don't have a clear picture of where things stand. I'm not a tax lawyer and I'm not an accountant. What I do is connect the dots between your corporate structure, your investments, your insurance, and your retirement — and make sure they're all pointing in the same direction.</p>
+      <p>I work independently, which means I'm not pushing a product line. I work with what actually makes sense for you.</p>
+      <div class="credentials">
+        Independent financial advisor &nbsp;·&nbsp; Licensed in Ontario &nbsp;·&nbsp; In the industry since 2001<br>
+        BComm (Finance), McMaster University &nbsp;·&nbsp; Based in Milton, ON
+      </div>
+    </div>
   </div>
 
-  <hr />
-
   <!-- Final CTA -->
-  <div class="section">
-    <h2>Let's have a real conversation.</h2>
-    <p>Book a 15-minute call. I'll ask a few questions, you can ask whatever you want, and we'll figure out if it makes sense to go further. No pressure either way.</p>
-    <a class="btn" href="https://outlook.office.com/bookwithme/user/95b50f9d3bdd45d88a8b01f0dd32ddca@financialdamon.ca/meetingtype/G_vyigEoe06OjTSM1IYt5Q2?anonymous&ismsaljsauthenabled&ep=mlink" target="_blank" rel="noopener">Book a 15-Minute Intro Call</a>
-    <p class="sub-cta">Not ready to book? Email me directly: <a href="mailto:smartmoney@financialdamon.ca">smartmoney@financialdamon.ca</a></p>
-    <p class="disclaimer">This page is for general informational purposes only and does not constitute financial, tax, or legal advice. Damon Smith is a licensed financial services advisor in Ontario. Strategies discussed are educational in nature and may not be suitable for all situations. No guarantee of specific outcomes is expressed or implied.</p>
+  <div class="cta-section">
+    <div class="cta-inner">
+      <h2>Let's have a real conversation.</h2>
+      <p>Book a 15-minute call. I'll ask a few questions, you can ask whatever you want, and we'll figure out if it makes sense to go further. No pressure either way.</p>
+      <a class="btn" href="https://outlook.office.com/bookwithme/user/95b50f9d3bdd45d88a8b01f0dd32ddca@financialdamon.ca/meetingtype/G_vyigEoe06OjTSM1IYt5Q2?anonymous&ismsaljsauthenabled&ep=mlink" target="_blank" rel="noopener">Book a 15-Minute Intro Call</a>
+      <p class="sub-cta" style="margin-top:13px;">Not ready to book? Email me directly: <a href="mailto:smartmoney@financialdamon.ca">smartmoney@financialdamon.ca</a></p>
+      <p class="disclaimer">This page is for general informational purposes only and does not constitute financial, tax, or legal advice. Damon Smith is a licensed financial services advisor in Ontario. Strategies discussed are educational in nature and may not be suitable for all situations. No guarantee of specific outcomes is expressed or implied.</p>
+    </div>
   </div>
 
   <!-- Footer -->
